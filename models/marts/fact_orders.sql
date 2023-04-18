@@ -11,6 +11,7 @@ select
     SALES,
     STATUS,
     ORDER_DATE,
+    DELIVERY_DATE,
     DEAL_SIZE,
     LIMIT_DATE_CODE
 
