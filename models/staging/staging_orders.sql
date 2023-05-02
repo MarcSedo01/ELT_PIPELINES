@@ -27,8 +27,9 @@ select
     limit_date_code as LIMIT_DATE_CODE,
     limit_delivery_hours as LIMIT_DELIVERY_HOURS,
     delivery_price as DELIVERY_PRICE,
-    carriercode as CARRIER_CODE,
-    carriername as CARRIER_NAME,
-    truckbrand as TRUCK_BRAND
+    carrier_code as CARRIER_CODE,
+    carrier_name as CARRIER_NAME,
+    truck_brand as TRUCK_BRAND
+
 
 from {{ref('orders')}}
