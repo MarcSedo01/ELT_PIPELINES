@@ -13,7 +13,8 @@ select
     ORDER_DATE,
     DELIVERY_DATE,
     DEAL_SIZE,
-    LIMIT_DATE_CODE
+    LIMIT_DATE_CODE,
+    CARRIER_CODE
 
 from {{ref('staging_orders')}} ORD
 
