@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: dim_carriers
+    columns:
+      - name: carrier_code
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_customers
+    columns:
+      - name: customer_wid
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_delivery
+    columns:
+      - name: limit_code
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_geography
+    columns:
+      - name: geo_wid
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_products
+    columns:
+      - name: product_wid
+        tests:
+          - unique
+          - not_null
+
+
+  - name: fact_orders
+    columns:
+      - name: product_wid
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: product_wid
+            
+      - name: customer_wid
+        tests:
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_wid
+
+      - name: geo_wid
+        tests:
+          - relationships:
+              to: ref('dim_geography')
+              field: geo_wid
+
+      - name: limit_date_code
+        tests:
+          - relationships:
+              to: ref('dim_delivery')
+              field: limit_code
+
+      - name: carrier_code
+        tests:
+          - relationships:
+              to: ref('dim_carriers')
+              field: carrier_code
